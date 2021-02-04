@@ -1,0 +1,79 @@
+<div class="container">
+  <div class="d-flex justify-content-center h-100">
+    <div class="card">
+      <div class="card-header">
+        <h3>My Profile</h3>
+        <div class="d-flex justify-content-end social_icon">
+          <span
+            ><i>
+              <span
+                ><img
+                  src="../../../assets/logo.png"
+                  style="width: 30%; float: right"
+                  alt="" /></span></i
+          ></span>
+        </div>
+      </div>
+      <div class="card-body">
+        <form>
+          <div class="d-flex flex-column">
+            <div class="d-flex justify-content-between">
+              <div>
+                email: <span>{{ profile.email }}</span>
+              </div>
+              <a (click)="editMode = !editMode" style="cursor: pointer">edit</a>
+            </div>
+
+            <div *ngIf="editMode" class="input-group form-group">
+              <input
+                name="email"
+                type="email"
+                class="form-control"
+                [(ngModel)]="profile.email"
+              />
+            </div>
+          </div>
+
+          <div
+            *ngIf="editMode"
+            class="form-group d-flex justify-content-center"
+          >
+            <input
+              (click)="onEditProfile()"
+              value="Submit"
+              class="btn login_btn"
+            />
+          </div>
+        </form>
+
+        <form enctype="multipart/form-data">
+          <div class="form-group d-flex justify-content-between">
+            <span
+              >profile image:
+              {{ profile.src ? profile.src.split("-")[1] : "none" }}</span
+            >
+            <div>
+              <label style="cursor: pointer" for="file">choose file</label>
+              <input
+                (change)="fileChange($event)"
+                id="file"
+                class="form-control-file"
+                type="file"
+                name="image"
+                style="display: none"
+              />
+              &nbsp;
+              <span *ngIf="profile.src"
+                ><a class="text-danger" (click)="onDeleteImage()"
+                  >delete</a
+                ></span
+              >
+            </div>
+          </div>
+          <span class="text-danger">{{ error }}</span>
+          <span class="text-success">{{ msg }}</span>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

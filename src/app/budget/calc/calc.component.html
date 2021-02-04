@@ -1,0 +1,29 @@
+<table class="d-flex justify-content-center">
+  <tbody>
+    <tr>
+      <td><b>Field</b></td>
+      <td><b>Dollars $</b></td>
+      <td><b>Percentage %</b></td>
+    </tr>
+    <tr>
+      <td>Recommended monthly expense</td>
+      <td>{{ table["recommendedExpense"]["d"] | number }}$</td>
+      <td>{{ table["recommendedExpense"]["p"] | number }}%</td>
+    </tr>
+    <tr *ngFor="let ex of table['highExpenses']">
+      <td>High expenses</td>
+      <td>{{ ex.d | number }}$</td>
+      <td>{{ ex.p | number }}%</td>
+    </tr>
+    <tr>
+      <td>Expenses so far</td>
+      <td>{{ table["soFar"]["d"] | number }}$</td>
+      <td>{{ table["soFar"]["p"] | number }}%</td>
+    </tr>
+    <tr>
+      <td>How much is left</td>
+      <td>{{ table["left"]["d"] | number }}$</td>
+      <td>{{ table["left"]["p"] | number }}%</td>
+    </tr>
+  </tbody>
+</table>

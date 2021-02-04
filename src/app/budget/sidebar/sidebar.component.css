@@ -1,0 +1,48 @@
+li {
+  background-color: transparent;
+}
+
+li a {
+  text-decoration: none;
+  cursor: pointer;
+  color: black;
+}
+
+li a:hover {
+  font-weight: bold;
+  color: black;
+}
+
+.active {
+  font-weight: bold;
+}
+
+.sidebar-list {
+  height: 100%;
+  width: 15rem;
+  background-color: #ffbb33;
+  box-shadow: 0 0 2em #ffbb33;
+}
+
+.btn,
+.sidebar-list {
+  position: fixed;
+  z-index: 1;
+}
+
+.company-header-avatar {
+  width: 100%;
+  height: 100%;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+}
+
+.image_cover {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  float: left;
+  margin: 7px 0 0 5px;
+}

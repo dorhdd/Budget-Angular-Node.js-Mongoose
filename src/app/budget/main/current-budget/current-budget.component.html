@@ -1,0 +1,54 @@
+<div class="currentBudget p-2 text-center">
+  <div class="h1">{{ budgetDetails.initailAmount | number }}$</div>
+  <span
+    >{{ budgetDetails.budgetName }} | ends: {{ budgetDetails.endDate }} |
+    monthly income: {{ budgetDetails.monthlyIncome }}</span
+  >
+</div>
+
+<form [formGroup]="budgetForm" (ngSubmit)="onSubmit()">
+  <div class="row justify-content-center mt-4">
+    <div class="form-group">
+      <select class="form-control" formControlName="financialType">
+        <option>+</option>
+        <option>-</option>
+      </select>
+    </div>
+    <div class="form-group w-25">
+      <input
+        placeholder="Amount"
+        class="form-control"
+        type="number"
+        formControlName="amount"
+      />
+    </div>
+    <div class="form-group w-25">
+      <input
+        placeholder="Description"
+        class="form-control"
+        type="text"
+        formControlName="description"
+        maxlength="30"
+      />
+    </div>
+
+    <div class="form-group">
+      <button
+        type="submit"
+        [className]="
+          budgetForm.get('financialType').value === '+'
+            ? 'btn btn-success'
+            : 'btn btn-danger'
+        "
+      >
+        Add
+      </button>
+    </div>
+  </div>
+</form>
+
+<div *ngIf="errors" class="d-flex flex-column text-center">
+  <div *ngFor="let error of errors">
+    <span class="text-danger"> *{{ error["msg"] }} </span>
+  </div>
+</div>

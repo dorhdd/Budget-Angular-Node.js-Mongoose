@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="d-flex justify-content-center h-100">
+      <div class="card">
+        <div class="card-header">
+          <h3>New Password</h3>
+          <div class="d-flex justify-content-end social_icon">
+            <span
+              ><i>
+                <span
+                  ><img
+                    src="../../../assets/logo.png"
+                    style="width: 30%; float: right"
+                    alt="" /></span></i
+            ></span>
+          </div>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="newPass" (ngSubmit)="onSubmit()">
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-key"></i></span>
+              </div>
+              <input
+                type="password"
+                class="form-control"
+                placeholder="Password"
+                formControlName="password"
+              />
+            </div>
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-key"></i></span>
+              </div>
+              <input
+                type="password"
+                class="form-control"
+                placeholder="Confirm Password"
+                formControlName="confirmPassword"
+              />
+            </div>
+
+            <input
+            hidden
+            type="text"
+            formControlName="id"
+          />
+            <input
+            hidden
+            type="text"
+            formControlName="token"
+          />
+            <div class="form-group">
+              <input
+                type="submit"
+                value="Create New Password"
+                class="btn float-right login_btn"
+              />
+            </div>
+          </form>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  

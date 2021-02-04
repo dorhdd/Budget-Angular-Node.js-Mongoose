@@ -1,0 +1,16 @@
+<form [formGroup]="newBudgetForm" (ngSubmit)="onSubmit()">
+  <div class="d-flex flex-column align-items-center">
+    <div *ngFor="let input of inputs">
+      <div class="form-group">
+        <label for="{{ input.controlName }}">{{ input.label }}</label>
+        <input
+          class="form-control"
+          type="{{ input.type }}"
+          formControlName="{{ input.controlName }}"
+          id="{{ input.controlName }}"
+        />
+      </div>
+    </div>
+    <button class="btn btn-success" type="submit">Add</button>
+  </div>
+</form>

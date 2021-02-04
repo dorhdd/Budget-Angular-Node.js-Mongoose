@@ -1,0 +1,30 @@
+<div class="d-flex justify-content-center">
+  <h1 *ngIf="budgetList.length<1">No budgets availible</h1>
+  <div *ngFor="let budget of budgetList">
+    <div class="card text-center bg-light text-dark" style="margin-right: 1rem">
+      <div class="card-header">
+        <h5>{{ budget.budgetName }}</h5>
+
+        <form>
+          <input hidden type="text" #budgetId value="{{ budget._id }}" />
+          <input
+            type="submit"
+            class="btn btn-primary"
+            value="Open"
+            (click)="onOpenBudget(budgetId.value)"
+          />
+        </form>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Initail amount: {{ budget.initailAmount }}</h5>
+        <p class="card-text">Monthly income: {{ budget.monthlyIncome }}</p>
+      </div>
+      <div class="card-footer">
+        <p>End: {{ budget.endDate }}</p>
+        <hr />
+        <a class="text-danger" (click)="onDeleteBudget(budget._id)">Delete</a>
+      </div>
+    </div>
+    <br />
+  </div>
+</div>

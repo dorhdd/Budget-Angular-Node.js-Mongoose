@@ -1,0 +1,54 @@
+<button class="btn btn-outline-warning" (click)="toggleSidebar()">
+  <i class="fas fa-bars fa-lg"></i>
+</button>
+
+<div canAc class="sidebar-list" *ngIf="opened">
+  <ul class="list-group">
+    <li>
+      <a class="float-right pr-2 pt-1" (click)="toggleSidebar()">
+        <i class="fas fa-window-close fa-2x"></i
+      ></a>
+    </li>
+
+    <li class="d-flex justify-content-center p-2">
+      <a routerLink="profile">
+        <div class="image_cover shadow">
+          <img [src]="profile.src" class="company-header-avatar" />
+        </div>
+      </a>
+    </li>
+    <li>
+      <p class="text-dark text-center">
+        <a class="text-primary" routerLink="profile">{{ profile.email }}</a>
+      </p>
+      <hr class="w-75" />
+    </li>
+
+    <li class="list-group-item border-0">
+      <a
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >Home <i class="fas fa-home"></i
+      ></a>
+    </li>
+    <li class="list-group-item border-0">
+      <a routerLink="newBudget" routerLinkActive="active"
+        >New Budget <i class="fas fa-plus"></i
+      ></a>
+    </li>
+    <li class="list-group-item border-0">
+      <a routerLink="budgetList" routerLinkActive="active"
+        >Budget list <i class="fas fa-list"></i
+      ></a>
+    </li>
+    <li class="list-group-item border-0">
+      <a routerLink="calc" routerLinkActive="active"
+        >Calculation <i class="fas fa-calculator"></i
+      ></a>
+    </li>
+    <li class="list-group-item border-0">
+      <a (click)="onLogout()">Logout <i class="fas fa-sign-out-alt"></i></a>
+    </li>
+  </ul>
+</div>
